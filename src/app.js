@@ -79,4 +79,4 @@ linkF.addEventListener("click", showTempInF);
 let linkC = document.querySelector("#clink");
 linkC.addEventListener("click", showTempInC);
 
-search("Athens")
+search("london")
