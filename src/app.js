@@ -14,6 +14,7 @@ function formatDate(timestamp) {
 }
 function displayTemperature(response) {
     let temperatureElement = document.querySelector("#temperature");
+    celsiusTemperature = response.data.main.temp;
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
 
     let cityElement = document.querySelector("#city");
@@ -38,7 +39,7 @@ function displayTemperature(response) {
     );
     iconElement.setAttribute("alt", response.data.weather[0].description);
 
-    celsiusTemperature = response.data.main.temp;
+    
 }
 function search(city) {
 let apiKey = "50c2acd53349fabd54f52b93c8650d37";
@@ -79,4 +80,4 @@ linkF.addEventListener("click", showTempInF);
 let linkC = document.querySelector("#clink");
 linkC.addEventListener("click", showTempInC);
 
-search("london")
+search("athens")
