@@ -51,22 +51,7 @@ function handleSubmit(event) {
     search(cityInputElement.value);
 
 }
-function showTempInF(event) {
-  event.preventDefault();
-  linkC.classList.remove("active");
-  linkF.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature");
-  let fTemp = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fTemp);
-}
-function showTempInC(event) {
-  event.preventDefault();
-  linkC.classList.add("active");
-  linkF.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 
-}
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -111,15 +96,7 @@ function getForecast(coordinates) {
   console.log(apiUrl)
 }
 
-let celsiusTemperature = null;
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit)
-
-let linkF = document.querySelector("#flink");
-linkF.addEventListener("click", showTempInF);
-
-let linkC = document.querySelector("#clink");
-linkC.addEventListener("click", showTempInC);
 
 search("athens")
