@@ -39,7 +39,7 @@ function displayTemperature(response) {
     );
     iconElement.setAttribute("alt", response.data.weather[0].description);
 
-    
+    getForecast(response.data.coord);
 }
 function search(city) {
 let apiKey = "50c2acd53349fabd54f52b93c8650d37";
@@ -68,7 +68,8 @@ function showTempInC(event) {
 
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily)
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
@@ -91,7 +92,14 @@ function displayForecast() {
 
 forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  
+
+}
+
+function getForecast(coordinates) {  
+  let apiKey = "50c2acd53349fabd54f52b93c8650d37";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+  console.log(apiUrl)
 }
 
 let celsiusTemperature = null;
@@ -106,4 +114,3 @@ let linkC = document.querySelector("#clink");
 linkC.addEventListener("click", showTempInC);
 
 search("athens")
-displayForecast()
