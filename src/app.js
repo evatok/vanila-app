@@ -51,7 +51,6 @@ function handleSubmit(event) {
     search(cityInputElement.value);
 
 }
-
 function showTempInF(event) {
   event.preventDefault();
   linkC.classList.remove("active");
@@ -60,7 +59,6 @@ function showTempInF(event) {
   let fTemp = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fTemp);
 }
-
 function showTempInC(event) {
   event.preventDefault();
   linkC.classList.add("active");
@@ -69,6 +67,7 @@ function showTempInC(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 
 }
+
 let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
